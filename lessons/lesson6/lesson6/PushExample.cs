@@ -22,26 +22,26 @@ namespace lesson6
             // Rx observables
             IObservable<Point> moves = Observable.FromEventPattern<MouseEventArgs>(w, "MouseMove").Select(x => x.EventArgs.Location);
 
-            //moves
-            //    .Subscribe(e => WriteLine($"[A] ({e.X}, {e.Y})"))
-            //    ;
+           // moves
+             //   .Subscribe(e => WriteLine($"[A] ({e.X}, {e.Y})"))
+              //  ;
 
             //moves
             //    .DistinctUntilChanged()
             //    .Subscribe(e => WriteLine($"[B] ({e.X}, {e.Y})"))
             //    ;
 
-            //moves
-            //    .Sample(TimeSpan.FromSeconds(1))
-            //    .DistinctUntilChanged()
-            //    .Subscribe(e => WriteLine($"[C] ({e.X}, {e.Y})"))
-            //    ;
+           // moves
+             //   .Sample(TimeSpan.FromSeconds(1))
+               // .DistinctUntilChanged()
+               // .Subscribe(e => WriteLine($"[C] ({e.X}, {e.Y})"))
+             //   ;
 
             moves
-                .Throttle(TimeSpan.FromSeconds(0.2))
-                .DistinctUntilChanged()
-                .Subscribe(e => WriteLine($"[D] ({e.X}, {e.Y})"))
-                ;
+               .Throttle(TimeSpan.FromSeconds(0.2))
+               .DistinctUntilChanged()
+               .Subscribe(e => WriteLine($"[D] ({e.X}, {e.Y})"))
+               ;
 
             Application.Run(w);
         }
